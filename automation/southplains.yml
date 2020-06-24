@@ -157,7 +157,7 @@
      nclu:
        commands:
 
-         - add bridge bridge ports swp1,swp2,swp3,swp4,swp5,swp6,swp7,swp48
+         - add bridge bridge ports swp1,swp2,swp3,swp4,swp5,swp6,swp7,swp8
          - add bridge bridge vids 12-14,23-24,34,1212-1214,1223-1224,1234
          - add bridge bridge vlan-aware
          - add interface swp1 bridge vids 12-14
