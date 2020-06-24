@@ -1,0 +1,172 @@
+---
+- hosts: ll-1
+  tasks:
+   - name: Configure switch ll-1 switch
+     nclu:
+       commands:
+
+         - add loopback lo ip address 10.10.10.2/32
+         - add vlan 12 ip address 10.0.21.1/30
+         - add vlan 13 ip address 10.0.21.5/30
+         - add vlan 14 ip address 10.0.21.9/30
+         - add interface swp47 ip address 10.0.121.0/31
+         - add interface swp48 bridge trunk vlans 12,13,14
+         - add ospf router-id 10.10.10.2
+         - add ospf network 10.0.21.0/24 area 16597
+         - add ospf network 10.0.121.0/31 area 16597
+         - add ospf network 10.10.10.2/32 area 16597
+
+       commit: true
+
+- hosts: ll-2
+  tasks:
+   - name: Configure switch ll-2 switch
+     nclu:
+       commands:
+
+         - add loopback lo ip address 10.10.10.102/32
+         - add vlan 1212 ip address 10.0.21.101/30
+         - add vlan 1213 ip address 10.0.21.105/30
+         - add vlan 1214 ip address 10.0.21.109/30
+         - add interface swp47 ip address 10.0.121.1/31
+         - add interface swp48 bridge trunk vlans 1212,1213,1214
+         - add ospf router-id 10.10.10.102
+         - add ospf network 10.0.21.0/24 area 16597
+         - add ospf network 10.0.121.0/31 area 16597
+         - add ospf network 10.10.10.102/32 area 16597
+
+       commit: true
+
+- hosts: reese-1
+  tasks:
+   - name: Configure switch reese-1 switch
+     nclu:
+       commands:
+
+         - add loopback lo ip address 10.10.10.5/32
+         - add vlan 12 ip address 10.0.21.2/30
+         - add vlan 23 ip address 10.0.21.21/30
+         - add vlan 24 ip address 10.0.21.25/30
+         - add interface swp47 ip address 10.0.121.2/31
+         - add interface swp48 bridge trunk vlans 12,23,24
+         - add ospf router-id 10.10.10.5
+         - add ospf network 10.0.21.0/24 area 16597
+         - add ospf network 10.0.121.2/31 area 16597
+         - add ospf network 10.10.10.5/32 area 16597
+
+       commit: true
+
+- hosts: reese-2
+  tasks:
+   - name: Configure switch reese-2 switch
+     nclu:
+       commands:
+
+         - add loopback lo ip address 10.10.10.105/32
+         - add vlan 1212 ip address 10.0.21.102/30
+         - add vlan 1223 ip address 10.0.21.121/30
+         - add vlan 1224 ip address 10.0.21.125/30
+         - add interface swp47 ip address 10.0.121.3/31
+         - add interface swp48 bridge trunk vlans 1212,1223,1224
+         - add ospf router-id 10.10.10.105
+         - add ospf network 10.0.21.0/24 area 16597
+         - add ospf network 10.0.121.2/31 area 16597
+         - add ospf network 10.10.10.105/32 area 16597
+
+       commit: true
+
+- hosts: lub-1
+  tasks:
+   - name: Configure switch lub-1 switch
+     nclu:
+       commands:
+
+         - add loopback lo ip address 10.10.10.3/32
+         - add vlan 13 ip address 10.0.21.6/30
+         - add vlan 23 ip address 10.0.21.22/30
+         - add vlan 34 ip address 10.0.21.33/30
+         - add interface swp47 ip address 10.0.121.4/31
+         - add interface swp48 bridge trunk vlans 13,23,34
+         - add ospf router-id 10.10.10.3
+         - add ospf network 10.0.21.0/24 area 16597
+         - add ospf network 10.0.121.4/31 area 16597
+         - add ospf network 10.10.10.3/32 area 16597
+
+       commit: true
+
+- hosts: lub-2
+  tasks:
+   - name: Configure switch lub-2 switch
+     nclu:
+       commands:
+
+         - add loopback lo ip address 10.10.10.103/32
+         - add vlan 1213 ip address 10.0.21.106/30
+         - add vlan 1223 ip address 10.0.21.122/30
+         - add vlan 1234 ip address 10.0.21.133/30
+         - add interface swp47 ip address 10.0.121.5/31
+         - add interface swp48 bridge trunk vlans 1213,1223,1234
+         - add ospf router-id 10.10.10.103
+         - add ospf network 10.0.21.0/24 area 16597
+         - add ospf network 10.0.121.4/31 area 16597
+         - add ospf network 10.10.10.103/32 area 16597
+
+       commit: true
+
+- hosts: plv-1
+  tasks:
+   - name: Configure switch plv-1 switch
+     nclu:
+       commands:
+
+         - add loopback lo ip address 10.10.10.4/32
+         - add vlan 14 ip address 10.0.21.10/30
+         - add vlan 24 ip address 10.0.21.26/30
+         - add vlan 34 ip address 10.0.21.34/30
+         - add interface swp47 ip address 10.0.121.6/31
+         - add interface swp48 bridge trunk vlans 14,24,34
+         - add ospf router-id 10.10.10.4
+         - add ospf network 10.0.21.0/24 area 16597
+         - add ospf network 10.0.121.6/31 area 16597
+         - add ospf network 10.10.10.4/32 area 16597
+
+       commit: true
+
+- hosts: plv-2
+  tasks:
+   - name: Configure switch plv-2 switch
+     nclu:
+       commands:
+
+         - add loopback lo ip address 10.10.10.104/32
+         - add vlan 1214 ip address 10.0.21.110/30
+         - add vlan 1224 ip address 10.0.21.126/30
+         - add vlan 1234 ip address 10.0.21.134/30
+         - add interface swp47 ip address 10.0.121.7/31
+         - add interface swp48 bridge trunk vlans 1214,1224,1234
+         - add ospf router-id 10.10.10.104
+         - add ospf network 10.0.21.0/24 area 16597
+         - add ospf network 10.0.121.6/31 area 16597
+         - add ospf network 10.10.10.104/32 area 16597
+
+       commit: true
+
+- hosts: mplscore
+  tasks:
+   - name: Configure switch mplscore switch
+     nclu:
+       commands:
+
+         - add bridge bridge ports swp1,swp2,swp3,swp4,swp5,swp6,swp7,swp48
+         - add bridge bridge vids 12-14,23-24,34,1212-1214,1223-1224,1234
+         - add bridge bridge vlan-aware
+         - add interface swp1 bridge vids 12-14
+         - add interface swp2 bridge vids 1212-1214
+         - add interface swp3 bridge vids 12,23-24
+         - add interface swp4 bridge vids 1212,1223-1224
+         - add interface swp5 bridge vids 13,23,34
+         - add interface swp6 bridge vids 1213,1223,1234
+         - add interface swp7 bridge vids 14,24,34
+         - add interface swp8 bridge vids 1214,1224,1234
+
+       commit: true
