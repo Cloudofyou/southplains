@@ -1,0 +1,26 @@
+
+graph southplains {
+ "ll-1" [function="leaf" os="CumulusCommunity/cumulus-vx" version="3.7.12"]
+ "ll-2" [function="leaf" os="CumulusCommunity/cumulus-vx" version="3.7.12"]
+ "reese-1" [function="leaf" os="CumulusCommunity/cumulus-vx" version="3.7.12"]
+ "reese-2" [function="leaf" os="CumulusCommunity/cumulus-vx" version="3.7.12"]
+ "lub-1" [function="leaf" os="CumulusCommunity/cumulus-vx" version="3.7.12"]
+ "lub-2" [function="leaf" os="CumulusCommunity/cumulus-vx" version="3.7.12"]
+ "plv-1" [function="leaf" os="CumulusCommunity/cumulus-vx" version="3.7.12"]
+ "plv-2" [function="leaf" os="CumulusCommunity/cumulus-vx" version="3.7.12"]
+ "mplscore" [function="leaf" os="CumulusCommunity/cumulus-vx" version="3.7.12"]
+
+ "ll-1":"swp48" -- "mplscore":"swp1"
+ "ll-2":"swp48" -- "mplscore":"swp2"
+ "reese-1":"swp48" -- "mplscore":"swp3"
+ "reese-2":"swp48" -- "mplscore":"swp4"
+ "lub-1":"swp48" -- "mplscore":"swp5"
+ "lub-2":"swp48" -- "mplscore":"swp6"
+ "plv-1":"swp48" -- "mplscore":"swp7"
+ "plv-2":"swp48" -- "mplscore":"swp8"
+
+ "ll-1":"swp47" -- "ll-2":"swp47"
+ "reese-1":"swp47" -- "reese-2":"swp47"
+ "lub-1":"swp47" -- "lub-2":"swp47"
+ "plv-1":"swp47" -- "plv-2":"swp47"
+}
